@@ -9,22 +9,26 @@
 </head>
 <body>
     <div class="container pt-5">
-        <img src="pill.png" class="mx-auto d-block" alt="Pill" style="width:210px;height:200px;">
+        <img src="static/pill.png" class="mx-auto d-block" alt="Pill" style="width:210px;height:200px;">
         <div class="center">
                 <p class="h1">Drug Interaction Checker</p>
             <div id="formfield" name="formfield">
-                <input type="text" name="Drug1" class="form-control-sm" size="50" placeholder="Drug" id="Drug"><br>
-                <input type="text" name="Drug2" class="form-control-sm" size="50" placeholder="Drug" id="Drug"><br>
+                <input type="text" name="drug" class="button" size="50" placeholder="Drug" id="Drug" style="margin-bottom: 5px;">
+                <br class="buttonBr">
+                <input type="text" name="drug" class="button" size="50" placeholder="Drug" id="Drug" style="margin-bottom: 5px;">
+                <br class="buttonBr">
             </div>
                 <br>
-                <input name="submit" onclick="submitForm()" type="Submit" class="btn btn-primary" value="Submit">
+                <input name="submit" onclick="submitForm()" type="Submit" class="btn btn-primary" value="Check">
+                <br>
+                <br>
             <div class="controls">
-                <button class="add" onclick="add()"><i class="fa fa-plus"></i>+</button>
-                <button class="remove" onclick="remove()"><i class="fa fa-minus"></i>-</button>
+                <button name="addButton" class="btn btn-primary" onclick="add()">+</button>
+                <button class="btn btn-primary" onclick="remove()">-</button>
             </div>
                 <div id="interactionAlert">
                 </div>
         </div>
     </div>
-  <script src="script.js"></script>
-  </body>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>

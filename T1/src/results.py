@@ -2,7 +2,7 @@ import pandas as pd
 import json
 
 def get_results_json(*drugs):
-    df = pd.read_csv('./data/CombinedDatasetConservativeTWOSIDES_critical.csv', delimiter='\t')
+    df = pd.read_csv('../data/CombinedDatasetConservativeTWOSIDES_critical.csv', delimiter='\t')
     interaction_dict = {}
     for drug in drugs:
         filtered_df = df[df['object']==drug]
