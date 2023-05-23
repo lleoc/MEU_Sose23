@@ -1,4 +1,5 @@
 from flask import Flask, render_template, redirect, session, flash, request, url_for
+#import results as res
 import os 
 
 app = Flask(__name__)
@@ -27,10 +28,17 @@ def init():
     return render_template('homepage.html')
 
 
-@app.route('/result', methods=['GET', 'POST'])
-def result():
+# @app.route('/result', methods=['POST'])
+# def result():
+#     data = request.get_json()
+    
+#     
+#     result = res.get_results_json(data)
+    
+#     
+#     response_data = {'result': result}
+#     return response_data
 
-    return render_template('result.html')
 
 
 @app.route('/drug_conflicts/<drug_list>', methods=['GET'])

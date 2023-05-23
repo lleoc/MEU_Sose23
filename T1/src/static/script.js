@@ -59,16 +59,16 @@ function submitForm(){
     var elements = document.getElementsByName("drug");
     var drugs = [];
     for (let index = 0; index < elements.length; index++) {
-        console.log(elements[index].value);
         if(elements[index].value !==''){
             drugs.push(elements[index].value);
         }
         console.log(drugs)
     }
     //checking in backend
-    if(testVar===1){
-        createDangerAlert();
-        testVar = 2;
+    var i = checkInteractions(drugs);
+    console.log(i);
+    if(i===true){
+        createDangerAlert()
     }else{
         createSuccessAlert();
     }
@@ -76,7 +76,32 @@ function submitForm(){
 }
 
 function checkInteractions(drugs){
+    const baseURL = 'http://192.168.0.31:5000/drug_conflicts/';
+    var request = createRequest(drugs);
+    var response = "";
+    console.log(request);
+    const Http = new XMLHttpRequest();
+    const url=baseURL+request;
+    Http.open("GET", url);
+    Http.send();
+    
+    Http.onreadystatechange = (e) => {
+        response = Http.responseText;
+        console.log(response);
+        if(Http.responseText.includes(':')){
+            return true;
+        }
+    }
+    return false;
+}
 
+function createRequest(drugs){
+    var request = "";
+    console.log("drugs:" + drugs);
+    for (let index = 0; index < drugs.length; index++) {
+        request += drugs[index] + ";";
+    }
+    return request;
 }
 
 function createDangerAlert(){
