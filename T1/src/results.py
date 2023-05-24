@@ -14,5 +14,5 @@ def get_results_json(*drugs):
 
 
 # example call
-drugs = ['Efavirenz', 'Norgestimate', 'Rifampicin', 'Amprenavir', 'Fentanyl']
-get_results_json(*drugs)
+# drugs = ['Efavirenz', 'Norgestimate', 'Rifampicin', 'Amprenavir', 'Fentanyl']
+# get_results_json(*drugs)
